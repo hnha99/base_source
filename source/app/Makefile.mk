@@ -1,0 +1,2 @@
+-include ${PROJECT_DIR}/source/app/bytetrack/Makefile.mk
+-include ${PROJECT_DIR}/source/app/sample_c/Makefile.mk
