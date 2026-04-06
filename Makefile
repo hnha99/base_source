@@ -21,26 +21,26 @@ LDFLAGS += -Wall -Wl,-gc-sections -lpthread -lm -lrt -lstdc++
 .PHONY : all create clean install
 
 all: create $(OBJ_DIR)/$(NAME_MODULE)
-	@echo $(GREEN) "--------- Project build $(NAME_MODULE) ---------" $(NONE)
+	@echo -e $(GREEN) "--------- Project build $(NAME_MODULE) ---------" $(NONE)
 
 create:
 	@echo Create build dir...
 	mkdir -p $(OBJ_DIR)
 
 clean:
-	@echo $(YELLOW) ---------- CLEAN PROJECT ---------- $(NONE)
+	@echo -e $(YELLOW) ---------- CLEAN PROJECT ---------- $(NONE)
 	@rm -rf $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: %.c
-	@echo $(BLUE) CC $< $(NONE)
+	@echo -e $(BLUE) CC $< $(NONE)
 	$(CC) -c -o $@ $< $(CXXFLAGS)
 
 $(OBJ_DIR)/%.o: %.cpp
-	@echo $(BLUE) CXX $< $(NONE)
+	@echo -e $(BLUE) CXX $< $(NONE)
 	$(CXX) -c -o $@ $< $(CXXFLAGS) -std=c++11
 
 $(OBJ_DIR)/$(NAME_MODULE): $(OBJ)
-	@echo $(BLUE) ---------- BUILD PROJECT ---------- $(NONE)
+	@echo -e $(BLUE) ---------- BUILD PROJECT ---------- $(NONE)
 	$(CXX) -o $@ $^ $(LDFLAGS) $(LDLIBS)
 	@echo $(GREEN)"-- Compiling '$(NAME_MODULE)' done --"$(NONE)
 
